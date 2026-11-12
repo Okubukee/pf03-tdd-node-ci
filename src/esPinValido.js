@@ -1,29 +1,8 @@
+    const FORMATO_PIN = /^(\d{4}|\d{6})$/;
+    const TODOS_IGUALES = /^(\d)\1+$/;
+
    export function esPinValido(pin) {
-     if (pin === null || pin === undefined) {
-       return false;
-     }
-     if (typeof pin !== 'string') {
-       return false;
-     }
-     if (pin.length === 0) {
-       return false;
-     }
-     if (pin.length !== 4 && pin.length !== 6) {
-       return false;
-     }
-     for (let i = 0; i < pin.length; i++) {
-       if (pin[i] < '0' || pin[i] > '9') {
-         return false;
-       }
-     }
-     let todosIguales = true;
-     for (let i = 1; i < pin.length; i++) {
-       if (pin[i] !== pin[0]) {
-         todosIguales = false;
-       }
-     }
-     if (todosIguales) {
-       return false;
-     }
-     return true;
+     if (typeof pin !== 'string') return false;  
+     if (!FORMATO_PIN.test(pin)) return false;   
+     return !TODOS_IGUALES.test(pin);            
    }
