@@ -1,4 +1,5 @@
-   import { fibonacci } from '../src/fibonacci.js';
+import { describe, test, expect } from 'vitest';
+import { fibonacci } from '../src/fibonacci.js';
 
    describe('fibonacci(n)', () => {
      test('devuelve 0 cuando n = 0', () => {
